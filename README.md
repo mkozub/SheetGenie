@@ -34,7 +34,7 @@ You'll need to set the following environment variables:
 
 1. Run the script:
    ```bash
-   python SheetGenie.py
+   python app.py
    ```
 
 2. Enter your Smartsheet ID when prompted
