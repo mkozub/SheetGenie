@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SheetGenie - Generate Smartsheets</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='images/logo.svg') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -13,9 +14,6 @@
         <header>
             <div class="header-row">
                 <div class="header-left">
-                    <div class="logo-container">
-                        <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="SheetGenie Logo" class="logo">
-                    </div>
                     <h1 class="app-title">SheetGenie</h1>
                 </div>
                 <div class="header-right">
@@ -39,7 +37,7 @@
             <h2>Step 2: Generate Column Headers</h2>
             <p class="step-subtitle">What will this sheet be used to do? This will help suggest column headers that can get you started faster.</p>
             <div class="input-group">
-                <input type="text" id="sheetPurpose" placeholder="Example: Project plan, Certification tracker..." aria-label="Sheet Purpose">
+                <input type="text" id="sheetPurpose" placeholder="Example: Project plan, Risk Tracker..." aria-label="Sheet Purpose">
                 <button id="generateColumnsBtn" class="btn">Generate Columns</button>
                 <div id="columnsLoader" class="loader" style="display: none;"></div>
             </div>
@@ -104,10 +102,6 @@
             </div>
             <div id="pushDataResult" class="result-box"></div>
         </section>
-
-        <footer>
-            <p>SheetGenie - Created by Mike Kozub</p>
-        </footer>
     </div>
 
     <script>

@@ -193,6 +193,7 @@ def generate_data():
        - If the key represents a DURATION, must be an integer (e.g., 30).
        - If the key represents Percentages, must be an integer between 0 and 100 (e.g., 75).
        - Outputs only valid Python code—no explanations or extra text.
+       - Return a minimum of 10 rows of data, unless otherwise specified. More rows is better, the description asks for 'detailed' - Give 20 rows.
 
     Column Dictionary:
     {json.dumps(column_dict, indent=4)}

@@ -1,21 +1,27 @@
 /* Base Styles with Enhanced Color Palette */
 :root {
-    --primary-color: #6C55DB; /* Main purple */
-    --primary-light: #9283e3; /* Lighter purple for gradients */
-    --primary-dark: #5040b0; /* Darker purple for depth */
+    /* AI Light Theme Colors */
+    --primary-color: #6C55DB; /* Main violet */
+    --primary-light: #9283e3; /* Lighter violet for gradients */
+    --primary-dark: #5040b0; /* Darker violet for depth */
     --secondary-color: #34a853; /* Secondary green */
     --secondary-light: #66c285; /* Lighter green */
     --accent-color: #ea4335; /* Accent red */
     --dark-color: #333;
-    --light-color: #f4f4f4;
-    --ultra-light: #fafafa;
+    --light-color: #f8f9fa; /* Lighter background */
+    --ultra-light: #ffffff;
     --danger-color: #ea4335;
     --success-color: #34a853;
-    --border-color: #ddd;
-    --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
-    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+    --border-color: #e9ecef;
+    --shadow-sm: 0 2px 5px rgba(108, 85, 219, 0.1);
+    --shadow-md: 0 4px 8px rgba(108, 85, 219, 0.12);
+    --shadow-lg: 0 8px 16px rgba(108, 85, 219, 0.15);
     --transition: all 0.3s ease;
+
+    /* AI Theme Gradients */
+    --gradient-ai-interactive: linear-gradient(90deg, #e3d8fb 0%, #e8eafd 100%);
+    --gradient-ai-static: linear-gradient(135deg, rgba(108, 85, 219, 0.1) 0%, rgba(80, 64, 176, 0.1) 100%);
+    --button-text-dark: #222;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
@@ -44,12 +50,13 @@ body {
 /* Enhanced Header with Gradient */
 header {
     padding: 28px 40px;
-    background: white;
+    background: var(--ultra-light);
     border-radius: 16px;
     box-shadow: var(--shadow-md);
     margin-bottom: 35px;
     overflow: hidden;
     transition: var(--transition);
+    background: var(--gradient-ai-static);
 }
 
 header:hover {
@@ -89,20 +96,19 @@ header:hover {
 }
 
 .app-title {
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
     font-weight: 700;
-    font-size: 3.3rem;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-    line-height: 1;
-    letter-spacing: -1px;
-    /* Create the bubbly effect with text shadow */
-    text-shadow: 
-        2px 2px 0 rgba(0, 0, 0, 0.1),
-        0px 3px 5px rgba(0, 0, 0, 0.2);
+    font-size: 2rem;
+    color: var(--primary-color);
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    margin-bottom: 0;
+}
+
+@media (min-width: 600px) {
+    .app-title {
+        font-size: 2.3rem;
+    }
 }
 
 .header-right {
@@ -130,12 +136,13 @@ header:hover {
 
 /* Improved Section Styling */
 .step-section {
-    background-color: white;
+    background-color: var(--ultra-light);
     padding: 28px;
     margin-bottom: 35px;
     border-radius: 16px;
     box-shadow: var(--shadow-md);
     transition: var(--transition);
+    border: 1px solid var(--border-color);
 }
 
 .step-section:hover {
@@ -180,28 +187,28 @@ input[type="text"], select {
     font-size: 1rem;
     background-color: var(--ultra-light);
     transition: var(--transition);
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 3px rgba(108, 85, 219, 0.05);
 }
 
 input[type="text"]:focus, select:focus {
     outline: none;
-    border-color: var(--primary-light);
-    box-shadow: 0 0 0 3px rgba(108, 85, 219, 0.2);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(108, 85, 219, 0.15);
 }
 
 /* Improved Buttons */
-.btn {
+.btn, .btn.full-width, .btn-small {
     padding: 12px 18px;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    color: white;
+    background: var(--gradient-ai-interactive) !important;
+    color: var(--button-text-dark) !important;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(108, 85, 219, 0.06);
     cursor: pointer;
     margin-left: 12px;
     font-size: 1rem;
     font-weight: 600;
     transition: var(--transition);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .btn.full-width {
@@ -209,14 +216,15 @@ input[type="text"]:focus, select:focus {
     margin-left: 0;
 }
 
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+.btn:hover, .btn.full-width:hover, .btn-small:hover {
+    background: linear-gradient(90deg, #e8eafd 0%, #e3d8fb 100%) !important;
+    color: var(--button-text-dark) !important;
+    box-shadow: 0 4px 16px rgba(108, 85, 219, 0.10);
 }
 
 .btn:active {
     transform: translateY(1px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(108, 85, 219, 0.2);
 }
 
 .btn-secondary {
@@ -226,20 +234,7 @@ input[type="text"]:focus, select:focus {
 .btn-small {
     padding: 8px 12px;
     font-size: 0.9rem;
-    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-light) 100%);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
     margin: 10px 0;
-    font-weight: 500;
-    transition: var(--transition);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.btn-small:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .btn-delete {
@@ -310,13 +305,13 @@ table input:focus, table select:focus {
 }
 
 .result-box.success {
-    background-color: #e6f7e6;
+    background-color: rgba(52, 168, 83, 0.1);
     color: var(--success-color);
     border-left: 5px solid var(--success-color);
 }
 
 .result-box.error {
-    background-color: #fae6e6;
+    background-color: rgba(234, 67, 53, 0.1);
     color: var(--danger-color);
     border-left: 5px solid var(--danger-color);
 }
@@ -333,7 +328,7 @@ table input:focus, table select:focus {
 
 /* Improved Loader Animation */
 .loader {
-    border: 3px solid #f3f3f3;
+    border: 3px solid rgba(108, 85, 219, 0.1);
     border-radius: 50%;
     border-top: 3px solid var(--primary-color);
     width: 22px;
@@ -387,11 +382,6 @@ footer {
     .header-left {
         min-width: unset;
         width: 100%;
-    }
-    
-    .logo-container {
-        width: 60px;
-        height: 60px;
     }
     
     .app-title {
